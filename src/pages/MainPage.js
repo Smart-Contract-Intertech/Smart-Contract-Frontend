@@ -11,10 +11,31 @@ import {ethers} from 'ethers';
 import react, {useState} from 'react';
 
 export default function MainPage(){
+    let connected = false;
+
+    async function isMetaMaskConnected() {
+        const {ethereum} = window;
+        const accounts = await ethereum.request({method: 'eth_accounts'});
+        return accounts && accounts.length > 0;
+    }
+
+    async function initialise() {
+        connected = await isMetaMaskConnected();
+    }
+
+    initialise();
+
+    window.ethereum.on('accountsChanged', async () => {
+        initialise();
+        setConnectButtonText('Metamask Cüzdanı ile Bağlan');
+        setDefaultAccount('Bağlı Cüzdan Yok.');
+    });
+
     const contractAddress = '0x5A86858aA3b595FD6663c2296741eF4cd8BC4d01';
 
+    const [userName, setUserName] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
-    const [defaultAccount, setDefaultAccount] = useState(null);
+    const [defaultAccount, setDefaultAccount] = useState('Bağlı Cüzdan Yok.');
     const [connectButtonText, setConnectButtonText] = useState('Metamask Cüzdanı\n ile Bağlan');
     const [currentContractVal, setCurrentContractVal] = useState(null);
 
@@ -76,6 +97,7 @@ export default function MainPage(){
                 width="350"
                 height="350"
             /><br/><br/><br/>
+            <h3> Bağlı Cüzdan Adresi: {defaultAccount} </h3>
             <button style={{color:'white', backgroundColor:'#9980EC'}} onClick={connectWallet}><p style={{display:"inline"}}>{connectButtonText}</p>
             <img src={metamask} alt="metamask" width="40" height="40" style={{display:"inline"}}></img></button><br/><br/><br/>
         </Container>
