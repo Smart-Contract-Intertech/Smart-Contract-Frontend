@@ -4,10 +4,40 @@ import main3 from './image/main3.png';
 import main4 from './image/main4.png';
 import main5 from './image/main5.png';
 import main6 from './image/Vector.png'
+import metamask from './image/metamask.png'
 import Container from 'react-bootstrap/Container';
 import './MainPage.css';
+import {ethers} from 'ethers';
+import react, {useState} from 'react';
 
 export default function MainPage(){
+    const contractAddress = '0x5A86858aA3b595FD6663c2296741eF4cd8BC4d01';
+
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [defaultAccount, setDefaultAccount] = useState(null);
+    const [connectButtonText, setConnectButtonText] = useState('Connect Wallet');
+    const [currentContractVal, setCurrentContractVal] = useState(null);
+
+    const [provider, setProvider] = useState(null);
+    const [signer, setSigner] = useState(null);
+    const [contract, setContract] = useState(null);
+
+    const accountChangedHandler = (newAccount) => {
+        setDefaultAccount(newAccount);
+    }
+
+    const connectWallet = () => {
+        if(window.ethereum){
+            window.ethereum.request({method: 'eth_requestAccounts'}).then(result => {
+                accountChangedHandler(result[0]);
+                setConnectButtonText('Wallet Connected');
+            })
+        }
+        else{
+            setErrorMessage('You need to install Metamask');
+            throw new Error('You need to install Metamask');
+        }
+    }
     return(
         <Container style ={{fontFamily:'sans-serif-medium', fontSize:26}}>
             <br/><br/><br/><p>Mirasınızı güvence altına alın..</p><br/><br/><br/><br/><br/>
@@ -45,7 +75,9 @@ export default function MainPage(){
                 alt=""
                 width="350"
                 height="350"
-            /> <br/><br/> <br/><br/>
+            /><br/><br/><br/>
+            <button type="button" class="btn btn-primary" onClick={connectWallet}>Metamask Cüzdanı <br/> ile Bağlan 
+                <img src={metamask} alt="metamask" width="30" height="30"></img></button><br/><br/><br/>
         </Container>
     )
 }
