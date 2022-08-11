@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 
 export default function Header(){
   return(
-    <Navbar bg="dark" variant="dark">
+    <Navbar fixed="top" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/">
           <img

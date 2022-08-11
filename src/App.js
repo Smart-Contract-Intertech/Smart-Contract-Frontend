@@ -8,6 +8,7 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route exact path='/' element={<MainPage/>}></Route>
             <Route exact path='/miras' element={<Miras/>}></Route>
           </Routes>
+          <Footer/>
         </div>
     </Router>
   )
