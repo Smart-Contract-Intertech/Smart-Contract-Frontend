@@ -15,7 +15,7 @@ export default function MainPage(){
 
     const [errorMessage, setErrorMessage] = useState(null);
     const [defaultAccount, setDefaultAccount] = useState(null);
-    const [connectButtonText, setConnectButtonText] = useState('Connect Wallet');
+    const [connectButtonText, setConnectButtonText] = useState('Metamask Cüzdanı\n ile Bağlan');
     const [currentContractVal, setCurrentContractVal] = useState(null);
 
     const [provider, setProvider] = useState(null);
@@ -30,7 +30,7 @@ export default function MainPage(){
         if(window.ethereum){
             window.ethereum.request({method: 'eth_requestAccounts'}).then(result => {
                 accountChangedHandler(result[0]);
-                setConnectButtonText('Wallet Connected');
+                setConnectButtonText('Cüzdan Bağlandı');
             })
         }
         else{
@@ -76,7 +76,7 @@ export default function MainPage(){
                 width="350"
                 height="350"
             /><br/><br/><br/>
-            <button type="button" class="btn btn-primary" onClick={connectWallet}><p style={{fontFamily:'sans-serif-medium', display:"inline"}}>Metamask Cüzdanı <br/> ile Bağlan </p>
+            <button style={{color:'white', backgroundColor:'#9980EC'}} onClick={connectWallet}><p style={{display:"inline"}}>{connectButtonText}</p>
             <img src={metamask} alt="metamask" width="40" height="40" style={{display:"inline"}}></img></button><br/><br/><br/>
         </Container>
     )
