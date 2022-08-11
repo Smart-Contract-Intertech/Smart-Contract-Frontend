@@ -76,8 +76,8 @@ export default function MainPage(){
                 width="350"
                 height="350"
             /><br/><br/><br/>
-            <button type="button" class="btn btn-primary" onClick={connectWallet}>Metamask Cüzdanı <br/> ile Bağlan 
-                <img src={metamask} alt="metamask" width="30" height="30"></img></button><br/><br/><br/>
+            <button type="button" class="btn btn-primary" onClick={connectWallet}><p style={{fontFamily:'sans-serif-medium', display:"inline"}}>Metamask Cüzdanı <br/> ile Bağlan </p>
+            <img src={metamask} alt="metamask" width="40" height="40" style={{display:"inline"}}></img></button><br/><br/><br/>
         </Container>
     )
 }
