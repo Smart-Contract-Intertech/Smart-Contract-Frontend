@@ -1,4 +1,3 @@
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import React, { useState } from "react";
 
 export default function Heritage(){
@@ -11,7 +10,6 @@ export default function Heritage(){
             <br/><br/><br/><br/>
             <h1>Merhaba, {defaultAccount}</h1><br/><br/><br/>
             <p>Aktarımın gerçekleşmesine {defaultRemainingTime} kaldı.</p><br/><br/><br/>
-            
             <p>{defaultAmount}</p>
         </div>
     )

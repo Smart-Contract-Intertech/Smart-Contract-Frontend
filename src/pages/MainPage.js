@@ -6,7 +6,9 @@ import main5 from './image/main5.png';
 import main6 from './image/Vector.png'
 import metamask from './image/metamask.png'
 import Container from 'react-bootstrap/Container';
+import { notification, message, Alert } from 'antd';
 import './MainPage.css';
+import 'antd/dist/antd.css';
 import {ethers} from 'ethers';
 import react, {useState} from 'react';
 
@@ -29,7 +31,10 @@ export default function MainPage(){
         initialise();
         setConnectButtonText('Metamask Cüzdanı ile Bağlan');
         setDefaultAccount('Bağlı Cüzdan Yok.');
+        setShowAlert(false);
     });
+
+    const [showAlert,setShowAlert] = useState(false);
 
     const contractAddress = '0x5A86858aA3b595FD6663c2296741eF4cd8BC4d01';
 
@@ -48,7 +53,7 @@ export default function MainPage(){
     }
 
     const connectWallet = () => {
-        if(window.ethereum){
+        /*if(window.ethereum){
             window.ethereum.request({method: 'eth_requestAccounts'}).then(result => {
                 accountChangedHandler(result[0]);
                 setConnectButtonText('Cüzdan Bağlandı');
@@ -57,10 +62,25 @@ export default function MainPage(){
         else{
             setErrorMessage('You need to install Metamask');
             throw new Error('You need to install Metamask');
+        }*/
+        if(window.ethereum){
+            window.ethereum.request({method: 'eth_requestAccounts'}).then(result => {
+                accountChangedHandler(result[0]);
+                setConnectButtonText('Cüzdan Bağlandı');
+                setTimeout(()=>{
+                    setShowAlert(true)
+                }, 300);
+            })
+        }
+        else{
+            setTimeout(()=>{
+                message.error('Metamask Kurmanız Gerekiyor!')
+            }, 100);
+            return;
         }
     }
     return(
-        <Container style ={{fontFamily:'sans-serif-medium', fontSize:26}}>
+        <Container style ={{fontFamily:'sans-serif-medium', fontSize:26, color:'#9980EC'}}>
             <br/><br/><br/><p>Mirasınızı güvence altına alın..</p><br/><br/><br/><br/><br/>
             <p>Metamask cüzdanınızı bağlayın.</p><br/><br/>
             <img 
@@ -97,7 +117,7 @@ export default function MainPage(){
                 width="350"
                 height="350"
             /><br/><br/><br/>
-            <h3> Bağlı Cüzdan Adresi: {defaultAccount} </h3>
+            <h3 style={{color:'#9980EC'}}> Bağlı Cüzdan Adresi: {defaultAccount} </h3>
             <button style={{color:'white', backgroundColor:'#9980EC'}} onClick={connectWallet}><p style={{display:"inline"}}>{connectButtonText}</p>
             <img src={metamask} alt="metamask" width="40" height="40" style={{display:"inline"}}></img></button><br/><br/><br/>
         </Container>
