@@ -6,7 +6,7 @@ import main5 from './image/main5.png';
 import main6 from './image/Vector.png'
 import metamask from './image/metamask.png'
 import Container from 'react-bootstrap/Container';
-import { notification, message, Alert } from 'antd';
+import { notification, message } from 'antd';
 import './MainPage.css';
 import 'antd/dist/antd.css';
 import {ethers} from 'ethers';
@@ -31,7 +31,6 @@ export default function MainPage(){
         initialise();
         setConnectButtonText('Metamask Cüzdanı ile Bağlan');
         setDefaultAccount('Bağlı Cüzdan Yok.');
-        setShowAlert(false);
     });
 
     const [showAlert,setShowAlert] = useState(false);
@@ -67,9 +66,6 @@ export default function MainPage(){
             window.ethereum.request({method: 'eth_requestAccounts'}).then(result => {
                 accountChangedHandler(result[0]);
                 setConnectButtonText('Cüzdan Bağlandı');
-                setTimeout(()=>{
-                    setShowAlert(true)
-                }, 300);
             })
         }
         else{
