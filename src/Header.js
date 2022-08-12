@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 
 export default function Header(){
   return(
-    <Navbar fixed="top" bg="dark" variant="dark">
+    <Navbar fixed="top" bg="dark" variant="dark" className='shadow'>
       <Container>
         <Navbar.Brand href="/">
           <img
@@ -20,9 +20,9 @@ export default function Header(){
           MOIRA
         </Navbar.Brand>
         <Nav className="justify-content-end flex-grow-1 pe-3">
-          <Navbar.Brand href="/miras">
+          <Navbar.Brand href="/profile">
             <img
-              href="./pages/Miras.js"
+              href="./pages/Profile.js"
               src={icon2}
               alt="Profile"
               width="30"

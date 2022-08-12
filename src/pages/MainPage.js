@@ -83,14 +83,14 @@ export default function MainPage(){
                 width="125"
                 height="125"
             /><br/><br/><br/>
-            <img src={main6} alt="" width="20" height="20" style={{display:"inline"}}></img><p style={{display:"inline"}}> Ve işlemi onaylayın.</p><br/><br/>
+            <img src={main6} alt="" width="20" height="20" style={{display:"inline"}}></img><p style={{display:"inline"}}> Ve işlemi onaylayın.</p><br/><br/><br/>
             <img
                 src={main4}
                 alt=""
                 width="125"
                 height="175"
             /><br/><br/><br/>
-            <p>MOIRA dağıtık etheryum ağıyla mirasınızı merkezi bir kurum olmadan <br/><br/> belirlediğiniz tarihte belirlediğiniz cüzdana güvenle sizin için aktarsın.</p><br/><br/>
+            <p>MOIRA dağıtık etheryum ağıyla mirasınızı merkezi bir kurum olmadan <br/> belirlediğiniz tarihte belirlediğiniz cüzdana güvenle sizin için aktarsın.</p><br/><br/>
             <img
                 src={main5}
                 alt=""

@@ -1,7 +1,8 @@
 import './pages/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Miras from './pages/Miras.js';
+import Profile from './pages/Profile.js';
 import MainPage from './pages/MainPage.js';
+import Heritage from './pages/Heritage';
 import Header from './Header';
 import {
   BrowserRouter as Router,
@@ -17,7 +18,8 @@ function App() {
           <Header/>
           <Routes>
             <Route exact path='/' element={<MainPage/>}></Route>
-            <Route exact path='/miras' element={<Miras/>}></Route>
+            <Route exact path='/profile' element={<Profile/>}></Route>
+            <Route exact path='/heritage' element={<Heritage/>}></Route>
           </Routes>
           <Footer/>
         </div>
