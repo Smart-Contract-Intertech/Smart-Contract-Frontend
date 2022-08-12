@@ -3,15 +3,23 @@ import './Heritage.css';
 import Container from 'react-bootstrap/Container';
 
 export default function Heritage(){
-    const[defaultAccount,setDefaultAccount] = useState('Kullanıcı');
-    const[defaultRemainingTime,setDefaultRemaininTime] = useState('0 gün');
-    const[defaultAmount,setDefaultAmount] = useState('0');
+    const[defaultAccount,setDefaultAccount] = useState();
+    const[defaultRemainingTime,setDefaultRemaininTime] = useState();
+    const[defaultAmount,setDefaultAmount] = useState();
 
     return(
         <Container>
             <br/><br/><br/><br/>
+            <form>
+                <label>Name: </label>
+                <input type="text" value={defaultAccount} onChange={(e)=>setDefaultAccount(e.target.value)}></input>
+            </form>
             <h1 style={{fontFamily:'sans-serif-medium', fontSize:'26', color:'#9980EC'}}>Merhaba, {defaultAccount}</h1><br/><br/><br/>
-            <p>Aktarımın gerçekleşmesine {defaultRemainingTime} kaldı.</p><br/><br/><br/>
+            <form>
+                <label>Tarih: </label>
+                <input type="text" value={defaultRemainingTime} onChange={(e)=>setDefaultRemaininTime(e.target.value)}></input>
+            </form>
+            <p>Aktarımın gerçekleşmesine {defaultRemainingTime} gün kaldı.</p><br/>
             <div>
                 <svg width="73px" height="88px" viewBox="0 0 73 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                     <g id="hourglass">
@@ -36,7 +44,11 @@ export default function Heritage(){
                 </svg>
             </div>
             <br/><br/>
-            <p>Aktarılası beklenen miktar: {defaultAmount}</p>
+            <form>
+                <label>Miktar: </label>
+                <input type="text" value={defaultAmount} onChange={(e)=>setDefaultAmount(e.target.value)}></input>
+            </form>
+            <p>Aktarılası beklenen miktar: {defaultAmount} ether</p>
         </Container>
     )
 }

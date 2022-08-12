@@ -29,9 +29,9 @@ export default function Header(){
               height="30"
             />{'Profil'}
           </Navbar.Brand>
-          <Navbar.Brand href="/heritage">
+          <Navbar.Brand href="/wallet">
             <img
-              href="./pages/Heritage.js"
+              href="/Wallet"
               src={icon1}
               alt="Wallet"
               width="30"
