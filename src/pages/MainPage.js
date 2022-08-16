@@ -11,67 +11,53 @@ import './MainPage.css';
 import 'antd/dist/antd.css';
 import {ethers} from 'ethers';
 import react, {useState} from 'react';
+import { browserName } from 'react-device-detect';
 
 export default function MainPage(){
-    let connected = false;
 
-    async function isMetaMaskConnected() {
-        const {ethereum} = window;
-        const accounts = await ethereum.request({method: 'eth_accounts'});
-        return accounts && accounts.length > 0;
-    }
-
-    async function initialise() {
-        connected = await isMetaMaskConnected();
-    }
-
-    initialise();
-
-    window.ethereum.on('accountsChanged', async () => {
-        initialise();
-        setConnectButtonText('Metamask Cüzdanı ile Bağlan');
-        setDefaultAccount('Bağlı Cüzdan Yok.');
-    });
-
-    const [showAlert,setShowAlert] = useState(false);
-
-    const contractAddress = '0x5A86858aA3b595FD6663c2296741eF4cd8BC4d01';
-
-    const [userName, setUserName] = useState(null);
-    const [errorMessage, setErrorMessage] = useState(null);
     const [defaultAccount, setDefaultAccount] = useState('Bağlı Cüzdan Yok.');
     const [connectButtonText, setConnectButtonText] = useState('Metamask Cüzdanı\n ile Bağlan');
-    const [currentContractVal, setCurrentContractVal] = useState(null);
-
-    const [provider, setProvider] = useState(null);
-    const [signer, setSigner] = useState(null);
-    const [contract, setContract] = useState(null);
 
     const accountChangedHandler = (newAccount) => {
         setDefaultAccount(newAccount);
     }
 
     const connectWallet = () => {
-        /*if(window.ethereum){
-            window.ethereum.request({method: 'eth_requestAccounts'}).then(result => {
-                accountChangedHandler(result[0]);
-                setConnectButtonText('Cüzdan Bağlandı');
-            })
-        }
-        else{
-            setErrorMessage('You need to install Metamask');
-            throw new Error('You need to install Metamask');
-        }*/
         if(window.ethereum){
             window.ethereum.request({method: 'eth_requestAccounts'}).then(result => {
                 accountChangedHandler(result[0]);
                 setConnectButtonText('Cüzdan Bağlandı');
+                notification['info']({
+                    message: 'You are connected'
+                });
             })
         }
         else{
+            /*
             setTimeout(()=>{
                 message.error('Metamask Kurmanız Gerekiyor!')
             }, 100);
+            */
+            notification['error']({
+                message: 'Metamask Kurmanız Gerekiyor!'
+            });
+
+            if(browserName === "Chrome"){
+                window.setTimeout(function () {
+                    window.location.href = 'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en';
+                }, 2000);
+            }
+            else if(browserName === "Firefox"){
+                window.setTimeout(function () {
+                    window.location.href = 'https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/';
+                }, 2000);
+            }
+            else if(browserName === "Brave"){
+                window.setTimeout(function () {
+                    window.location.href = 'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en';
+                }, 2000);
+            }
+
             return;
         }
     }
