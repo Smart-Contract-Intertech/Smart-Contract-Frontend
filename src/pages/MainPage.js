@@ -22,13 +22,18 @@ export default function MainPage(){
         setDefaultAccount(newAccount);
     }
 
+    window.ethereum.on('accountsChanged', async () => {
+        setConnectButtonText('Metamask Cüzdanı ile Bağlan');
+        setDefaultAccount(null);
+    });
+
     const connectWallet = () => {
         if(window.ethereum){
             window.ethereum.request({method: 'eth_requestAccounts'}).then(result => {
                 accountChangedHandler(result[0]);
                 setConnectButtonText('Cüzdan Bağlandı');
                 notification['info']({
-                    message: 'You are connected'
+                    message: 'Bağlantı Kuruldu.'
                 });
             })
         }
@@ -44,18 +49,18 @@ export default function MainPage(){
 
             if(browserName === "Chrome"){
                 window.setTimeout(function () {
-                    window.location.href = 'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en';
-                }, 2000);
+                    window.open('https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en','_blank');
+                }, 1500);
             }
             else if(browserName === "Firefox"){
                 window.setTimeout(function () {
-                    window.location.href = 'https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/';
-                }, 2000);
+                    window.open('https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/','_blank');
+                }, 1500);
             }
             else if(browserName === "Brave"){
                 window.setTimeout(function () {
-                    window.location.href = 'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en';
-                }, 2000);
+                    window.open('https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en','_blank');
+                }, 1500);
             }
 
             return;
