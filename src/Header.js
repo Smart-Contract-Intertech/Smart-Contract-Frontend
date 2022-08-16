@@ -6,14 +6,7 @@ import icon2 from './pages/image/profile.png';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-
-
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export default function Header(){
   return(
@@ -23,8 +16,8 @@ export default function Header(){
           <img
             alt="Anasayfa"
             src={logo}
-            width="30"
-            height="30"
+            width="40"
+            height="40"
             className="d-inline-block align-top"
           />{' '}
           MOIRA
@@ -35,19 +28,18 @@ export default function Header(){
               to="./pages/TransferInputScreen.js"
               src={icon2}
               alt="Profile"
-              width="30"
-              height="30"
-            />{}
+              width="40"
+              height="40"
+            />
           </Link>
-          <Link to="/wallet">
+          <Link to="/Heritage">
             <img
-              to="/Wallet"
+              to="./pages/Heritage"
               src={icon1}
               alt="Wallet"
-              width="30"
-              height="30"
-              
-            />{}
+              width="40"
+              height="40"
+            />
           </Link>
         </Nav>
       </Container>

@@ -31,9 +31,9 @@ form{
   border: red;
 }
 
- #etheryumUnitOptions{
-  display: none;
- }
+#etheryumUnitOptions{
+display: none;
+}
 
 #listGrupHorizantal{
   border: #282c34 solid 1px;
@@ -41,10 +41,10 @@ form{
   justify-content: space-between;
   
 }
- #showAmount{
-  margin-right: 150px;
- }
 
+#showAmount{
+margin-right: 150px;
+}
 
 #devamButton{
   width: 20%;
@@ -54,8 +54,8 @@ form{
   color:black; 
   font-weight: bold;
   cursor: pointer;
-
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

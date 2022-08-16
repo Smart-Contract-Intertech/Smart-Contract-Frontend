@@ -2,9 +2,8 @@ import Container from "react-bootstrap/Container";
 import React, { useState } from "react";
 import { FormInput } from "../components/FormInput";
 
-
 export default function TransferInputScreen() {
-    var selectedUnit ="wei";
+  var selectedUnit ="wei";
   const [values, setValues] = useState({
     receiverName: "",
     walletAddress: "",
@@ -12,9 +11,6 @@ export default function TransferInputScreen() {
     transferDate: "",
   });
 
-
-
-   
   const inputs = [
     {
       id: 1,
@@ -36,7 +32,6 @@ export default function TransferInputScreen() {
       label: "Wallet Address",
       patter: '^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$',
       required:true,
-      
     },
     {
       id: 3,
@@ -48,13 +43,13 @@ export default function TransferInputScreen() {
       label: "Amount",
     },
     {
-        id: 4,
-        name: "transferDate",
-        type: "date",
-        placeholder: "Transfer Date",
-        label: "Transfer Date",
-        errorMesage:"Please Select Future Date",
-        required:true,
+      id: 4,
+      name: "transferDate",
+      type: "date",
+      placeholder: "Transfer Date",
+      label: "Transfer Date",
+      errorMesage:"Please Select Future Date",
+      required:true,
       }, 
   ];
 
@@ -66,7 +61,6 @@ export default function TransferInputScreen() {
     setValues({...values,[e.target.name]:e.target.value})
   }
 
-  
   console.log(values);
   //console.log(today)
   //console.log(new Date().toISOString());
@@ -94,7 +88,6 @@ export default function TransferInputScreen() {
         
       <form onSubmit={handleSubmit}>
       
-      
         {inputs.map((input) => (
           <FormInput
             key = {input.id}
@@ -114,12 +107,10 @@ export default function TransferInputScreen() {
             </ul>
         </div> */}
        
-      
         <button type ="submit" id = "devamButton">Devam</button>
         
       </form>
 
-   
     </div>
     
   );

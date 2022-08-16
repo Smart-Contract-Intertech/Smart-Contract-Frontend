@@ -9,12 +9,12 @@ export default function Heritage(){
 
     return(
         <Container>
-            <br/><br/><br/><br/>
+            <br/><br/>
             <form>
-                <label>Name: </label>
+                <label>İsim: </label>
                 <input type="text" value={defaultAccount} onChange={(e)=>setDefaultAccount(e.target.value)}></input>
             </form>
-            <h1 style={{fontFamily:'sans-serif-medium', fontSize:'26', color:'#9980EC'}}>Merhaba, {defaultAccount}</h1><br/><br/><br/>
+            <h1 style={{fontFamily:'sans-serif-medium', fontSize:'26', color:'#9980EC'}}>Merhaba, {defaultAccount}</h1><br/>
             <form>
                 <label>Tarih: </label>
                 <input type="text" value={defaultRemainingTime} onChange={(e)=>setDefaultRemaininTime(e.target.value)}></input>
@@ -43,12 +43,12 @@ export default function Heritage(){
                     </g>
                 </svg>
             </div>
-            <br/><br/>
+            <br/>
             <form>
                 <label>Miktar: </label>
                 <input type="text" value={defaultAmount} onChange={(e)=>setDefaultAmount(e.target.value)}></input>
             </form>
-            <p>Aktarılası beklenen miktar: {defaultAmount} ether</p>
+            <p>Aktarılası beklenen miktar: {defaultAmount} ether</p><br/><br/>
         </Container>
     )
 }

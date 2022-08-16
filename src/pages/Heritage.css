@@ -5,6 +5,16 @@ body{
     font-size: 26px;
 }
 
+form{
+    background-color: #A7D5CF;
+}
+
+label{
+    color: #9980EC;
+    font-family: sans-serif-medium;
+    font-size: larger;
+}
+
 div {
     text-align: center;
 }

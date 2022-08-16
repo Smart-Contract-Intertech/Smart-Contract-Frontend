@@ -5,10 +5,17 @@ export default function Footer(){
     return(
         <Navbar bg="dark" variant="dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">
-                <img src={Logo} alt="" width="30" height="30" className="d-inline-block align-text-top" style={{display:"inline"}}></img>
-                <p style={{display:"inline", color:'white'}}>MOIRA</p>
-                </a>
+                <Link to="/">
+                    <img src={Logo} 
+                    to="/"
+                    alt="" 
+                    width="30" 
+                    height="30" 
+                    className="d-inline-block align-text-top" 
+                    style={{display:"inline"}}>
+                    </img>
+                    <p style={{display:"inline", color:'white'}}>MOIRA</p>
+                </Link>
             </div>
         </Navbar>
     )
