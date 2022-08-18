@@ -6,8 +6,8 @@ import { useState } from "react";
 const NewTransfer = ({ inputs, title }) => {
     const [defaultName,setDefaultName]=useState("");
     const [defaultAddress,setDefaultAddress]=useState("");
-    const [defaultDate,setDefaultDate]=useState("");
     const [defaultAmount,setDefaultAmount]=useState("");
+    const [defaultDate,setDefaultDate]=useState("");
 
     return (
         <div className="new">
@@ -26,20 +26,24 @@ const NewTransfer = ({ inputs, title }) => {
                     </div>
                     <div className="right">
                         <form>
-                            <label>İsim: </label>
-                            <input type="text" value={defaultName} onChange={(e)=>setDefaultName(e.target.value)}></input>
-                        </form>
-                        <form>
-                            <label>Cüzdan Adresi: </label>
-                            <input type="text" value={defaultAddress} onChange={(e)=>setDefaultAddress(e.target.value)}></input>
-                        </form>
-                        <form>
-                            <label>Miktar: </label>
-                            <input type="text" value={defaultAmount} onChange={(e)=>setDefaultAmount(e.target.value)}></input>
-                        </form>
-                        <form>
-                            <label>Tarih: </label>
-                            <input type="date" value={defaultDate} onChange={(e)=>setDefaultDate(e.target.value)}></input>
+                                <div className="formInput" key="">
+                                    <label>İsim:</label>
+                                    <input type="text" value={defaultName} onChange={(e)=>setDefaultName(e.target.value)}></input>
+                                    <br/>
+                                    <br/>
+                                    <label>Cüzdan Adresi:</label>
+                                    <input type="text" value={defaultAddress} onChange={(e)=>setDefaultAddress(e.target.value)}></input>
+                                    <br/>
+                                    <br/>
+                                    <label>Miktar:</label>
+                                    <input type="text" value={defaultAmount} onChange={(e)=>setDefaultAmount(e.target.value)}></input>
+                                    <br/>
+                                    <br/>
+                                    <label>Tarih:</label>
+                                    <input type="date" value={defaultDate} onChange={(e)=>setDefaultDate(e.target.value)}></input>
+                                    <br/>
+                                    <br/>
+                                </div>
                         </form>
                         {/*<form>
                             {inputs.map((input) => (

@@ -1,7 +1,6 @@
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import "./loginned.scss";
-import Chart from "../../components/chart/Chart";
 import TradingViewWidget, {Themes} from "react-tradingview-widget";
 
 const Loginned = () => {

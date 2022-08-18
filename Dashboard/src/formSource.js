@@ -14,7 +14,7 @@ export const userInputs = [
     {
       id: 3,
       label: "Miktar",
-      type: "mail",
+      type: "text",
       placeholder: "Aktarım Yapılacak Miktar",
     },
     {
