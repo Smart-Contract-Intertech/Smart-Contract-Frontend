@@ -18,32 +18,27 @@ const NewTransfer = ({ inputs, title }) => {
                     <h1>{title}</h1>
                 </div>
                 <div className="bottom">
-                    <div className="left">
-                        <p>{defaultName}</p>
-                        <p>{defaultAddress}</p>
-                        <p>{defaultAmount}</p>
-                        <p>{defaultDate}</p>
-                    </div>
                     <div className="right">
                         <form>
-                                <div className="formInput" key="">
-                                    <label>İsim:</label>
-                                    <input type="text" value={defaultName} onChange={(e)=>setDefaultName(e.target.value)}></input>
-                                    <br/>
-                                    <br/>
-                                    <label>Cüzdan Adresi:</label>
-                                    <input type="text" value={defaultAddress} onChange={(e)=>setDefaultAddress(e.target.value)}></input>
-                                    <br/>
-                                    <br/>
-                                    <label>Miktar:</label>
-                                    <input type="text" value={defaultAmount} onChange={(e)=>setDefaultAmount(e.target.value)}></input>
-                                    <br/>
-                                    <br/>
-                                    <label>Tarih:</label>
-                                    <input type="date" value={defaultDate} onChange={(e)=>setDefaultDate(e.target.value)}></input>
-                                    <br/>
-                                    <br/>
-                                </div>
+                            <div className="formInput" key="">
+                                <label>İsim:</label>
+                                <input type="text" value={defaultName} onChange={(e)=>setDefaultName(e.target.value)}></input>
+                                <br/>
+                                <br/>
+                                <label>Cüzdan Adresi:</label>
+                                <input type="text" value={defaultAddress} onChange={(e)=>setDefaultAddress(e.target.value)}></input>
+                                <br/>
+                                <br/>
+                                <label>Miktar:</label>
+                                <input type="text" value={defaultAmount} onChange={(e)=>setDefaultAmount(e.target.value)}></input>
+                                <br/>
+                                <br/>
+                                <label>Tarih:</label>
+                                <input type="date" value={defaultDate} onChange={(e)=>setDefaultDate(e.target.value)}></input>
+                                <br/>
+                                <br/>
+                                <button>Gönder</button>
+                            </div>
                         </form>
                         {/*<form>
                             {inputs.map((input) => (
