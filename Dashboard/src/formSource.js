@@ -1,44 +1,27 @@
 export const userInputs = [
     {
       id: 1,
-      label: "Username",
+      label: "İsim",
       type: "text",
-      placeholder: "john_doe",
+      placeholder: "Aktarımın Yapılacağı İsim",
     },
     {
       id: 2,
-      label: "Name and surname",
+      label: "Cüzdan Adresi",
       type: "text",
-      placeholder: "John Doe",
+      placeholder: "Aktarımın Yapılacağı Cüzdan Adresi",
     },
     {
       id: 3,
-      label: "Email",
+      label: "Miktar",
       type: "mail",
-      placeholder: "john_doe@gmail.com",
+      placeholder: "Aktarım Yapılacak Miktar",
     },
     {
       id: 4,
-      label: "Phone",
-      type: "text",
-      placeholder: "+1 234 567 89",
-    },
-    {
-      id: 5,
-      label: "Password",
-      type: "password",
-    },
-    {
-      id: 6,
-      label: "Address",
-      type: "text",
-      placeholder: "Elton St. 216 NewYork",
-    },
-    {
-      id: 7,
-      label: "Country",
-      type: "text",
-      placeholder: "USA",
+      label: "Tarih",
+      type: "date",
+      placeholder: "Aktarımın Gerçekleşeceği Tarih",
     },
   ];
   
