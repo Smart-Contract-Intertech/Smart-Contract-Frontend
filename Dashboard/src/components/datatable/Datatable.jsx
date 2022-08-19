@@ -13,7 +13,7 @@ const Datatable = () => {
 
   const actionColumn = [{
     field: "değişiklik",
-    headerName: "Düzenle",
+    headerName: "Ayarlar",
     width: 150,
     renderCell: (params) => {
       return (
@@ -25,7 +25,7 @@ const Datatable = () => {
             className="deleteButton"
             onClick={() => handleDelete(params.row.id)}
           >
-            Sil
+            İptal Et
           </div>
         </div>
       );
@@ -36,16 +36,18 @@ const Datatable = () => {
       <div className="datatableTitle">
         Gönderilenler
         <Link to="/users/newtransfer" className="link">
-          Yeni Kişi Ekle<i></i>
+          Yeni Yatırım Oluştur<i></i>
         </Link>
       </div>
-      <DataGrid
-        className="datagrid"
-        rows={data}
-        columns={userColumns.concat(actionColumn)}
-        pageSize={10}
-        rowsPerPageOptions={[10]}
-      />
+      <Link to="/users/test" className="link">
+        <DataGrid
+          className="datagrid"
+          rows={data}
+          columns={userColumns.concat(actionColumn)}
+          pageSize={10}
+          rowsPerPageOptions={[10]}
+        />
+      </Link>
     </div>
   );
 };
